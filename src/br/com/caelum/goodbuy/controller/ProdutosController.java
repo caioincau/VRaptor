@@ -26,6 +26,11 @@ public class ProdutosController {
 		this.result = result;
 	}
 
+	@Path("/produto/busca")
+	public List<Produto> busca(String nome){
+		result.include("nome", nome);
+		return dao.busca(nome);
+	}
 	@Delete
 	@Path("/produtos/{id}")
 	public void remove(Long id) {
